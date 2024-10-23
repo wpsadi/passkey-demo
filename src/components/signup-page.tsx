@@ -41,7 +41,7 @@ export function SignupPageComponent() {
         toast.success('Signup successful!')
         
       } else {
-        setErrorMsg(result.message || 'An error occurred during signup.')
+        setErrorMsg(result.msg || 'An error occurred during signup.')
         toast.error('Signup failed. Please try again.')
       }
     } catch (error) {
