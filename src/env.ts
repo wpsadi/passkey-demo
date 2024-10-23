@@ -6,5 +6,9 @@ export const env = {
     },
     jwt:{
         secret: String(process.env.SESSION_SECRET)
+    },
+    passkey:{
+        rpID: String(process.env.RPId),
+        origin: String(process.env.ORIGIN)
     }
 }

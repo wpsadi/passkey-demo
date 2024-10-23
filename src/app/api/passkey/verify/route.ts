@@ -5,6 +5,7 @@ import {RegistrationResponseJSON} from "@simplewebauthn/types"
 import { Models } from "node-appwrite";
 import { gettingPasskeyFromId } from "@/helpers/gettingPasskeyById";
 import { saveVerifiedPasskey } from "@/helpers/saveVerifiedPasskey";
+import { env } from "@/env";
 export const POST = async (req: NextRequest) => {
   try {
     const accountStatus = await makeSureAccountExistFromCookie();
@@ -107,13 +108,13 @@ export const POST = async (req: NextRequest) => {
      * A unique identifier for your website. 'localhost' is okay for
      * local dev
      */
-    const rpID = "localhost";
+    const rpID = env.passkey.rpID;
     /**
      * The URL at which registrations and authentications should occur.
      * 'http://localhost' and 'http://localhost:PORT' are also valid.
      * Do NOT include any trailing /
      */
-    const origin = `http://${rpID}:3000`;
+    const origin = env.passkey.origin;
 
     console.log(parsedData)
 

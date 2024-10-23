@@ -8,6 +8,7 @@ import { getUserPasskeys } from "@/helpers/getUserPasskeys";
 import { Models } from "node-appwrite";
 import { savePasskey } from "@/helpers/savingPasskey";
 import { PublicKeyCredentialCreationOptionsJSON } from "@simplewebauthn/types";
+import { env } from "@/env";
 export const POST = async () => {
   try {
     const accountStatus = await makeSureAccountExistFromCookie();
@@ -61,7 +62,7 @@ export const POST = async () => {
      * A unique identifier for your website. 'localhost' is okay for
      * local dev
      */
-    const rpID = "localhost";
+    const rpID = env.passkey.rpID;
     /**
      * The URL at which registrations and authentications should occur.
      * 'http://localhost' and 'http://localhost:PORT' are also valid.
